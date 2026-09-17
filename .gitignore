@@ -1,0 +1,4 @@
+.env
+kubernetes/secret.yaml
+node_modules/
+**/.DS_Store

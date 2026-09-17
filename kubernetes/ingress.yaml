@@ -1,0 +1,29 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: explorage-ingress
+  namespace: explorage
+  annotations:
+    kubernetes.io/ingress.class: traefik
+spec:
+  rules:
+    - host: explorage.pulami.co.uk
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: explorage-backend-svc
+                port:
+                  number: 8080
+    - host: explorage.local
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: explorage-backend-svc
+                port:
+                  number: 8080

@@ -1,0 +1,13 @@
+version: "3.9"
+
+services:
+  backend: 
+    image: pulami/explorage
+    build: .
+    ports:
+      - "8080:8080"
+    env_file:
+      - .env
+    environment:
+      - PORT=8080
+    restart: unless-stopped

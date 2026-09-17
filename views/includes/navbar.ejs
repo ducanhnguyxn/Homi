@@ -1,0 +1,59 @@
+<style>
+  .btn-search {
+    background-color: #fe424d;
+    color: white;
+  }
+  .btn-search i {
+    display: inline;
+    margin-right: 0.5rem;
+  }
+
+  #filters {
+    display: flex;
+    flex-wrap: wrap;  
+  }
+
+  @media (max-width: 768px) {
+    .navbar-search-form {
+      width: 100%;
+      margin: 0.5rem 0;
+    }
+    .navbar-search-form input {
+      font-size: 0.9rem;
+    }
+    .btn-search {
+      white-space: nowrap;
+    }
+  }
+</style>
+<nav class="navbar navbar-expand-md bg-body-light border-bottom sticky-top">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/listings"><i class="fa-solid fa-hotel fs-4"></i></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-link" href="/listings">Explorage</a>
+      </div>
+      <!-- Search form -->
+      <div class="navbar-nav mx-auto">
+        <form class="d-flex navbar-search-form" action="#" method="GET" role="search">
+            <input class="form-control me-2" type="search" name="query" placeholder="Search listings" aria-label="Search">
+            <button class="btn btn-search" type="submit"><i class="fa-brands fa-searchengin"></i><span class="d-none d-md-inline"> Search</span></button>
+        </form>
+      </div>
+      <!-- Auth links -->
+      <div class="navbar-nav ms-auto">
+        <a class="nav-link" href="/listings/new">Host Your Home</a>
+        <% if(typeof currUser === 'undefined' || !currUser) { %>
+        <a class="nav-link" href="/signup"><b>Sign Up</b></a>
+        <a class="nav-link" href="/login"><b>Log In</b></a>
+        <% } %>
+        <% if(typeof currUser !== 'undefined' && currUser) { %>
+        <a class="nav-link" href="/logout"><b>Log Out</b></a>
+        <% } %>
+      </div>
+    </div>
+  </div>
+</nav>

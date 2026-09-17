@@ -1,0 +1,43 @@
+<% layout("/layouts/boilerplate") %>
+<div class="row mt-3 justify-content-center">
+    <div class="col-12 col-md-8 col-lg-6">
+        <div class="d-flex align-items-center mb-3">
+            <h1 class="me-2">SignUp for Explorage</h1>
+            <i class="fa-solid fa-hotel fs-2"></i>
+        </div>
+        <form action="/signup" method="POST" class="needs-validation" novalidate>
+            <div class="mb-3">
+                <label for="username" class="form-label">Username</label>
+                <input 
+                    name="username" 
+                    id="username"
+                    type="text" 
+                    class="form-control"  
+                    required
+                />
+                <div class="valid-feedback">Looks good!</div>
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input 
+                    name="email" 
+                    id="email"
+                    type="email" 
+                    class="form-control"  
+                    required
+                />
+            </div>
+            <div class="mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input 
+                    name="password" 
+                    id="password"
+                    type="password" 
+                    class="form-control"  
+                    required
+                />
+            </div>
+            <button class="btn btn-success w-100">SignUp</button>
+        </form>
+    </div>
+</div>
