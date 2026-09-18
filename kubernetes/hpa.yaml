@@ -1,13 +1,13 @@
 apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
 metadata:
-  name: explorage-hpa
-  namespace: explorage
+  name: homi-hpa
+  namespace: homi
 spec:
   scaleTargetRef:
     apiVersion: apps/v1
     kind: Deployment
-    name: explorage-backend
+    name: homi-backend
   minReplicas: 1
   maxReplicas: 5
   metrics:

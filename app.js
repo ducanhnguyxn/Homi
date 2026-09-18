@@ -77,7 +77,7 @@ app.use((req, res, next) => {
 
 // const cors = require("cors");
 // app.use(cors({
-//   origin: "https://explorage.pulami.co.uk",
+//   origin: "https://homi.ducanhnguyxn.dev",
 //   credentials: true
 // }));
 

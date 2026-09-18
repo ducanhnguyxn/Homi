@@ -1,27 +1,18 @@
 <% layout("/layouts/boilerplate.ejs") %>
-<div id="filters" class="container-fluid py-3">
-    <div class="d-flex flex-wrap justify-content-center gap-3 w-100">
-        <div class="filter text-center p-3 bg-light border rounded shadow-sm w-100">
-            <i class="fa-solid fa-fire fa-2x text-danger"></i>
-            <a href="/listings" class="text-decoration-none"> 
-                <p class="mt-2">All listings</p>
-            </a>
-        </div>
-    </div>
-</div>
+<h3 class="mt-3 mb-4"><i class="fa-solid fa-heart" style="color: var(--homi-primary);"></i> My Wishlist</h3>
 
+<% if (wishlistListings.length === 0) { %>
+    <p class="text-muted">You haven't saved any listings yet. Tap the heart on a listing to add it here.</p>
+<% } else { %>
 <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-3 mt-2">
-    <% for(let listing of allListings) { %>
-        <% let isSaved = typeof currUser !== 'undefined' && currUser && currUser.wishlist && currUser.wishlist.some(wId => wId.equals(listing._id)); %>
+    <% for(let listing of wishlistListings) { %>
         <div class="col">
             <div class="position-relative">
-                <% if (typeof currUser !== 'undefined' && currUser) { %>
                 <form method="POST" action="/listings/<%= listing._id %>/wishlist" class="wishlist-btn-form">
-                    <button type="submit" class="wishlist-heart" aria-label="Toggle wishlist">
-                        <i class="fa-<%= isSaved ? 'solid' : 'regular' %> fa-heart"></i>
+                    <button type="submit" class="wishlist-heart" aria-label="Remove from wishlist">
+                        <i class="fa-solid fa-heart"></i>
                     </button>
                 </form>
-                <% } %>
                 <a href="/listings/<%= listing._id %>" class="listing-link text-decoration-none">
                     <div class="card h-100">
                         <img
@@ -42,3 +33,4 @@
         </div>
     <% } %>
 </div>
+<% } %>

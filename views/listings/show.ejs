@@ -6,7 +6,17 @@
 <div class="row mt-3">
     <div class="col-12 col-md-10 col-lg-8 offset-md-1">
         <!-- Listing Details -->
-        <h3><%= listing.title %></h3>
+        <div class="d-flex justify-content-between align-items-center">
+            <h3><%= listing.title %></h3>
+            <% if (currUser) { %>
+            <% let isSaved = currUser.wishlist && currUser.wishlist.some(wId => wId.equals(listing._id)); %>
+            <form method="POST" action="/listings/<%= listing._id %>/wishlist">
+                <button type="submit" class="wishlist-heart" style="position: static;" aria-label="Toggle wishlist">
+                    <i class="fa-<%= isSaved ? 'solid' : 'regular' %> fa-heart"></i>
+                </button>
+            </form>
+            <% } %>
+        </div>
         <div class="card">
             <img src="<%= listing.image.url %>" class="card-img-top" alt="listing_image" style="width: 100%; height: 16rem; object-fit: cover;">
             <br>

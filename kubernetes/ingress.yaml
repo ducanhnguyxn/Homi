@@ -1,29 +1,29 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: explorage-ingress
-  namespace: explorage
+  name: homi-ingress
+  namespace: homi
   annotations:
     kubernetes.io/ingress.class: traefik
 spec:
   rules:
-    - host: explorage.pulami.co.uk
+    - host: homi.ducanhnguyxn.dev
       http:
         paths:
           - path: /
             pathType: Prefix
             backend:
               service:
-                name: explorage-backend-svc
+                name: homi-backend-svc
                 port:
                   number: 8080
-    - host: explorage.local
+    - host: homi.local
       http:
         paths:
           - path: /
             pathType: Prefix
             backend:
               service:
-                name: explorage-backend-svc
+                name: homi-backend-svc
                 port:
                   number: 8080

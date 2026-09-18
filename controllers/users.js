@@ -15,7 +15,7 @@ module.exports.signUp = async (req, res, next) => {
             if(err){
                 return next(err);
             }
-            req.flash("success", "Welcome to Explorage");
+            req.flash("success", "Welcome to Homi");
             res.redirect("/listings");
         }) 
     } catch(e){
@@ -30,7 +30,7 @@ module.exports.renderLogIn = (req, res) => {
 };
 
 module.exports.logIn = async (req, res) => {
-    req.flash("success", "Welcome to Explorage! You are logged in!");
+    req.flash("success", "Welcome to Homi! You are logged in!");
     let redirectUrl = res.locals.redirectUrl || "/listings";
     
     // Manually save session before redirecting to ensure cookie is set
@@ -47,8 +47,13 @@ module.exports.logOut = (req, res, next) => {
     req.logout((err) => {
       if(err){
         return next(err);
-      }  
+      }
       req.flash("success", "You are logged out");
       res.redirect("/listings");
     });
+};
+
+module.exports.renderWishlist = async (req, res) => {
+    const user = await User.findById(req.user._id).populate("wishlist");
+    res.render("listings/wishlist.ejs", { wishlistListings: user.wishlist });
 };

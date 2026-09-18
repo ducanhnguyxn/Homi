@@ -1,23 +1,23 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: explorage-backend
-  namespace: explorage
+  name: homi-backend
+  namespace: homi
   labels:
-    app: explorage
+    app: homi
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: explorage
+      app: homi
   template:
     metadata:
       labels:
-        app: explorage
+        app: homi
     spec:
       containers:
       - name: backend
-        image: docker.io/pulami/explorage:latest
+        image: docker.io/ducanhnguyxn/homi:latest
         imagePullPolicy: Always
         ports:
         - containerPort: 8080
@@ -26,7 +26,7 @@ spec:
             value: "production"
         envFrom:
         - secretRef:
-            name: explorage-secrets
+            name: homi-secrets
         resources:
           requests:
             cpu: "100m"

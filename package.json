@@ -2,7 +2,7 @@
   "engines": {
     "node": "23.4.0"
   },
-  "name": "explorage",
+  "name": "homi",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
@@ -14,9 +14,9 @@
     "build": "echo \"No build step required\""
   },
   "keywords": [],
-  "author": "",
+  "author": "ducanhnguyxn",
   "license": "ISC",
-  "description": "",
+  "description": "Homi — a full-stack accommodation marketplace to discover, list, and book unique places to stay.",
   "dependencies": {
     "@mapbox/mapbox-sdk": "^0.16.1",
     "cloudinary": "^1.41.3",

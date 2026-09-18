@@ -1,5 +1,6 @@
 const { model } = require("mongoose");
 const Listing = require("../models/listing");
+const User = require("../models/user");
 const { listingSchema } = require("../schema.js");
 const mbxGeocoding = require('@mapbox/mapbox-sdk/services/geocoding');
 const mapToken = process.env.MAP_TOKEN;
@@ -96,5 +97,22 @@ module.exports.destroy = async(req, res) => {
    console.log(deletedListing);
    req.flash("success", "Listing Deleted");
    res.redirect("/listings");
+};
+
+module.exports.toggleWishlist = async(req, res) => {
+    let { id } = req.params;
+    const user = await User.findById(req.user._id);
+    const alreadySaved = user.wishlist.some((listingId) => listingId.equals(id));
+
+    if (alreadySaved) {
+        user.wishlist = user.wishlist.filter((listingId) => !listingId.equals(id));
+        req.flash("success", "Removed from your wishlist");
+    } else {
+        user.wishlist.push(id);
+        req.flash("success", "Added to your wishlist");
+    }
+
+    await user.save();
+    res.redirect(req.get("Referer") || `/listings/${id}`);
 };
 

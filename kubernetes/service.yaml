@@ -1,12 +1,12 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: explorage-backend-svc
-  namespace: explorage
+  name: homi-backend-svc
+  namespace: homi
 spec:
   type: ClusterIP
   selector:
-    app: explorage
+    app: homi
   ports:
     - port: 8080
       targetPort: 8080

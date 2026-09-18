@@ -2,7 +2,7 @@ version: "3.9"
 
 services:
   backend: 
-    image: pulami/explorage
+    image: ducanhnguyxn/homi
     build: .
     ports:
       - "8080:8080"

@@ -1,6 +1,6 @@
-# Explorage Test Suite
+# Homi Test Suite
 
-This directory contains automated tests for the Explorage application.
+This directory contains automated tests for the Homi application.
 
 ## Running Tests
 

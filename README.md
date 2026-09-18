@@ -148,8 +148,8 @@ For Kubernetes deployment:
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/yourusername/homi.git
-cd homi
+git clone https://github.com/ducanhnguyxn/Homi.git
+cd Homi
 ```
 
 ### 2. Install Dependencies

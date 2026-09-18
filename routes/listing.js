@@ -38,4 +38,7 @@ router.put("/:id", isLoggedIn, isOwner,upload.single('listing[image]'), validate
 //Delete Route-show.ejs
 router.delete("/:id",isLoggedIn, isOwner, wrapAsync(listingController.destroy));
 
+//Wishlist Route-toggle save/unsave
+router.post("/:id/wishlist", isLoggedIn, wrapAsync(listingController.toggleWishlist));
+
 module.exports = router;

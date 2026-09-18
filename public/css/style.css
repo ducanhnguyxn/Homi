@@ -1,32 +1,67 @@
-
-body{
-    font-family: "Lora", serif !important;
+:root {
+    --homi-primary: #d9683a;
+    --homi-primary-dark: #b8502a;
+    --homi-accent: #2f6f68;
+    --homi-bg: #fffaf3;
+    --homi-surface: #ffffff;
+    --homi-text: #2b2420;
+    --homi-muted: #7a6f66;
+    --homi-border: #efe3d3;
+    --homi-shadow: rgba(43, 36, 32, 0.1);
 }
 
+body {
+    font-family: "Lora", serif !important;
+    background-color: var(--homi-bg);
+    color: var(--homi-text);
+}
+
+h1, h2, h3, h4, h5, .navbar-brand, .btn {
+    font-family: "Poppins", sans-serif;
+}
+
+a {
+    color: var(--homi-accent);
+}
 
 /*Navbar*/
 .navbar {
     height: 5rem;
-    background-color: white;
+    background-color: var(--homi-surface);
+    border-bottom: 1px solid var(--homi-border);
 }
 
-.fa-hotel {
-    color: #fe424d;
-    font-size: 2rem;
+.navbar-brand {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 700;
+    font-size: 1.4rem;
+    color: var(--homi-primary) !important;
+}
+
+.navbar-brand .fa-house-chimney {
+    color: var(--homi-primary);
+    font-size: 1.6rem;
 }
 
 .nav-link {
-    color: #222222 !important;
+    color: var(--homi-text) !important;
+}
+
+.nav-link:hover {
+    color: var(--homi-primary) !important;
 }
 
 /*Footer*/
 
 .f-info-links a {
     text-decoration: none;
-    color: #222222
+    color: var(--homi-text)
 }
 .f-info-links a:hover {
     text-decoration: underline;
+    color: var(--homi-primary);
 }
 .f-info-links,
 .f-info-socials {
@@ -39,14 +74,14 @@ body{
 .f-info-socials i {
     margin-right: 1rem;
     font-size: 1.5rem;
-
+    color: var(--homi-text);
 }
 
 .f-info {
     text-align: center;
     display: flex;
     height: 8rem;
-    background-color: #ebebeb;
+    background-color: var(--homi-border);
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
@@ -56,6 +91,9 @@ body{
 .card {
     border: none !important;
     margin-bottom: 2rem;
+    background-color: var(--homi-surface);
+    border-radius: 1rem;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
 .card-img-top{
@@ -76,14 +114,66 @@ body{
     text-decoration: none;
 }
 
+.listing-link .card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px var(--homi-shadow);
+}
+
 /*Card Effect*/
 .card-img-overlay {
     opacity: 0;
 }
 
 .card-img-overlay:hover {
-    opacity: 0.3;
-    background-color: white;
+    opacity: 0.15;
+    background-color: var(--homi-text);
+}
+
+/*Wishlist heart button*/
+.wishlist-btn-form {
+    position: absolute;
+    top: 0.75rem;
+    right: 0.75rem;
+    z-index: 2;
+}
+
+.wishlist-heart {
+    border: none;
+    background-color: rgba(255, 255, 255, 0.85);
+    color: var(--homi-primary);
+    width: 2.25rem;
+    height: 2.25rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 6px var(--homi-shadow);
+    transition: transform 0.15s ease;
+}
+
+.wishlist-heart:hover {
+    transform: scale(1.1);
+}
+
+/*Buttons*/
+.btn-search {
+    background-color: var(--homi-primary) !important;
+    color: white !important;
+    border: none !important;
+}
+.btn-search:hover {
+    background-color: var(--homi-primary-dark) !important;
+}
+
+.btn-brand {
+    background-color: var(--homi-primary);
+    border-color: var(--homi-primary);
+    color: white;
+}
+.btn-brand:hover {
+    background-color: var(--homi-primary-dark);
+    border-color: var(--homi-primary-dark);
+    color: white;
 }
 
 /*Map*/
@@ -102,8 +192,8 @@ body{
     gap: 1rem;
     padding: 20px;
     margin: 0;
-    justify-items: center; 
-    align-items: center;   
+    justify-items: center;
+    align-items: center;
 }
 .filter {
     text-align: center;
@@ -116,36 +206,40 @@ body{
     cursor: pointer;
 }
 
+.filter .fa-fire {
+    color: var(--homi-primary) !important;
+}
+
 /*Mobile Responsive Fixes*/
 @media (max-width: 768px) {
     .navbar {
         height: auto;
         padding: 0.5rem 1rem;
     }
-    
+
     .f-info {
         height: auto;
         padding: 1.5rem 1rem;
     }
-    
+
     .f-info-socials i {
         margin-right: 0.75rem;
         font-size: 1.25rem;
     }
-    
+
     #map {
         height: 250px;
     }
-    
+
     .container {
         padding-left: 15px;
         padding-right: 15px;
     }
-    
+
     h1, h3 {
         font-size: 1.5rem;
     }
-    
+
     h2 {
         font-size: 1.25rem;
     }
@@ -155,10 +249,9 @@ body{
     .card-img-top {
         height: 200px !important;
     }
-    
+
     .btn {
         font-size: 0.9rem;
         padding: 0.5rem 1rem;
     }
 }
-  
